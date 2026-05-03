@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2304384c'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='32' font-weight='500' fill='white'%3EK%3C/text%3E%3C/svg%3E">
+
+<title>お問い合わせ｜KIZUNA合同会社</title>
+<meta name="description" content="KIZUNA合同会社へのお問い合わせフォームです。プロジェクトのご相談・取材依頼・パートナーシップなど、お気軽にお問い合わせください。">
+
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #2a2a2a;
+    --muted: #6b6b6b;
+    --accent: #04384c;
+    --accent-dark: #032a3a;
+    --accent-soft: #e8f0f4;
+    --border: #e0e0e0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.85; font-size: 16px;
+  }
+
+  header.site {
+    background: rgba(255,255,255,0.96);
+    padding: 16px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  header.site .logo {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 20px; color: var(--accent-dark);
+    font-weight: 600; text-decoration: none;
+  }
+  header.site nav a {
+    color: var(--muted); font-size: 14px;
+    text-decoration: none; margin-left: 28px;
+  }
+  header.site nav a:hover { color: var(--accent); }
+
+  nav.breadcrumb {
+    max-width: 720px; margin: 0 auto;
+    padding: 18px 24px 0;
+    font-size: 13px; color: var(--muted);
+  }
+  nav.breadcrumb a { color: var(--muted); text-decoration: none; }
+  nav.breadcrumb a:hover { color: var(--accent); }
+
+  main.contact {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 30px 24px 80px;
+  }
+
+  h1 {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 30px;
+    font-weight: 500;
+    margin: 16px 0 14px;
+    color: var(--accent-dark);
+    line-height: 1.4;
+  }
+  .lead {
+    color: #444;
+    margin: 0 0 36px;
+    font-size: 15.5px;
+    line-height: 2;
+  }
+
+  form {
+    background: white;
+    padding: 36px 36px 30px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .field { margin-bottom: 22px; }
+  .field label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-dark);
+    margin-bottom: 8px;
+  }
+  .field label .req {
+    color: #c33;
+    margin-left: 4px;
+    font-size: 12px;
+  }
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field textarea,
+  .field select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 15px;
+    background: #fafafa;
+    transition: border-color .2s, background .2s;
+  }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(4,56,76,0.08);
+  }
+  .field textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+  .field .help {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .radios { display: flex; gap: 18px; flex-wrap: wrap; }
+  .radios label {
+    display: flex; align-items: center;
+    font-weight: 400; font-size: 14px;
+    cursor: pointer; margin-bottom: 0;
+    color: #333;
+  }
+  .radios input[type="radio"] {
+    margin-right: 6px;
+  }
+
+  .privacy-check {
+    background: var(--accent-soft);
+    padding: 16px 18px;
+    border-radius: 6px;
+    margin: 28px 0 24px;
+    font-size: 13.5px;
+    color: #333;
+  }
+  .privacy-check input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  .privacy-check a {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  button.submit {
+    display: block;
+    width: 100%;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #04384c 0%, #032a3a 100%);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+  }
+  button.submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(4,56,76,0.25);
+  }
+
+  .form-note {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12.5px;
+    margin: 16px 0 0;
+    line-height: 1.85;
+  }
+
+  footer.site {
+    background: #1a1a1a;
+    color: #b0b0b0;
+    padding: 30px 24px;
+    text-align: center;
+    font-size: 13px;
+  }
+  footer.site .links a {
+    color: #b0b0b0;
+    text-decoration: none;
+    margin: 0 12px;
+  }
+  footer.site .links a:hover { color: white; }
+  footer.site .copy {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #707070;
+  }
+
+  @media (max-width: 600px) {
+    header.site { padding: 14px 18px; }
+    header.site nav a { margin-left: 14px; font-size: 13px; }
+    main.contact { padding: 24px 18px 60px; }
+    h1 { font-size: 24px; }
+    form { padding: 24px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/" class="logo">KIZUNA合同会社</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/#services">Services</a>
+    <a href="/#projects">Projects</a>
+  </nav>
+</header>
+
+<nav class="breadcrumb">
+  <a href="/">トップ</a> ›
+  <span>お問い合わせ</span>
+</nav>
+
+<main class="contact">
+  <h1>お問い合わせ</h1>
+  <p class="lead">
+    プロジェクトのご相談・取材依頼・パートナーシップなど、<br>
+    以下のフォームよりお気軽にお問い合わせください。<br>
+    <span style="font-size:13.5px;color:var(--muted);">※ 返信まで1〜3営業日いただく場合があります。</span>
+  </p>
+
+  <div id="form-error" style="display:none; padding:14px 18px; background:#fdecea; border-left:4px solid #c33; border-radius:4px; color:#822; font-size:14px; margin-bottom:18px;"></div>
+
+  <form id="contact-form" action="/api/contact" method="POST">
+    <div class="field">
+      <label for="company">会社名・屋号</label>
+      <input type="text" id="company" name="company" placeholder="例：株式会社○○">
+    </div>
+
+    <div class="field">
+      <label for="name">お名前 <span class="req">*</span></label>
+      <input type="text" id="name" name="name" required placeholder="例：山田 太郎">
+    </div>
+
+    <div class="field">
+      <label for="email">メールアドレス <span class="req">*</span></label>
+      <input type="email" id="email" name="email" required placeholder="例：example@xxx.com">
+    </div>
+
+    <div class="field">
+      <label for="tel">電話番号</label>
+      <input type="tel" id="tel" name="tel" placeholder="例：090-0000-0000">
+    </div>
+
+    <div class="field">
+      <label>初回連絡手段 <span class="req">*</span></label>
+      <div class="radios">
+        <label><input type="radio" name="contact_method" value="email" required checked> メール</label>
+        <label><input type="radio" name="contact_method" value="tel"> 電話</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="subject">お問い合わせ種別 <span class="req">*</span></label>
+      <select id="subject" name="subject" required>
+        <option value="">選択してください</option>
+        <option value="consulting">コンサルティング・コーチングのご相談</option>
+        <option value="pr">PR・メディア取材のご相談</option>
+        <option value="marketing">マーケティング・ブランディングのご相談</option>
+        <option value="system">システム開発・AI活用のご相談</option>
+        <option value="partnership">業務提携・パートナーシップ</option>
+        <option value="other">その他</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="message">お問い合わせ内容 <span class="req">*</span></label>
+      <textarea id="message" name="message" required placeholder="ご相談内容をご記入ください"></textarea>
+    </div>
+
+    <label class="privacy-check">
+      <input type="checkbox" name="privacy_agreed" required>
+      <a href="/privacy.html" target="_blank">プライバシーポリシー</a> に同意します。
+    </label>
+
+    <!-- スパム対策: 隠しフィールド -->
+    <input type="text" name="_gotcha" style="display:none">
+
+    <button type="submit" class="submit">送信する</button>
+
+    <p class="form-note">
+      送信後、運営担当より1〜3営業日以内にご返信いたします。
+    </p>
+  </form>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const errorBox = document.getElementById('form-error');
+    const submitBtn = form.querySelector('button.submit');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中...';
+
+      const data = Object.fromEntries(new FormData(form));
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const result = await res.json().catch(() => ({}));
+
+        if (res.ok && result.ok) {
+          window.location.href = '/thanks.html';
+          return;
+        }
+
+        errorBox.textContent = result.error || '送信に失敗しました。お手数ですが再度お試しください。';
+        errorBox.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = '送信する';
+      } catch (err) {
+        errorBox.textContent = '通信エラーが発生しました。ネットワークを確認のうえ再度お試しください。';
+        errorBox.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = '送信する';
+      }
+    });
+  </script>
+</main>
+
+<footer class="site">
+  <div class="links">
+    <a href="/">トップ</a>
+    <a href="/privacy.html">プライバシーポリシー</a>
+    <a href="/tokushoho.html">特定商取引法表記</a>
+  </div>
+  <div class="copy">© 2026 KIZUNA LLC. All rights reserved.</div>
+</footer>
+
+</body>
+</html>

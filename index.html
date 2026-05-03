@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2304384c'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='32' font-weight='500' fill='white'%3EK%3C/text%3E%3C/svg%3E">
+
+<title>KIZUNA合同会社 ｜「したい！」を「できる！」に</title>
+<meta name="description" content="KIZUNA合同会社は、企業や個人の「したい！」を「できる！」に変える、コンサルティング・コーチング・認知度向上・権威性構築の伴走パートナーです。">
+
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #2a2a2a;
+    --muted: #6b6b6b;
+    --accent: #04384c;        /* 既存SWELL踏襲・紺 */
+    --accent-dark: #032a3a;
+    --accent-light: #1a5470;
+    --accent-soft: #e8f0f4;
+    --accent-softer: #f4f8fa;
+    --border: #e0e0e0;
+    --card: #ffffff;
+    --highlight: #f7f5f0;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.85; font-size: 16px;
+  }
+
+  /* ===== Header ===== */
+  header.site {
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(10px);
+    padding: 16px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+  }
+  header.site .logo {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 20px; color: var(--accent-dark);
+    font-weight: 600; text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  header.site nav a {
+    color: var(--muted); font-size: 14px;
+    text-decoration: none; margin-left: 28px;
+    transition: color .2s;
+  }
+  header.site nav a:hover { color: var(--accent); }
+
+  /* ===== Hero ===== */
+  section.hero {
+    background: linear-gradient(135deg, #04384c 0%, #032a3a 70%, #1a5470 100%);
+    color: white;
+    padding: 100px 24px 110px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  section.hero::before {
+    content: "";
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  section.hero h1 {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 44px; font-weight: 500;
+    line-height: 1.5; margin: 0 0 24px;
+    letter-spacing: 0.02em;
+    position: relative;
+  }
+  section.hero h1 .accent {
+    color: #87e7ff;
+  }
+  section.hero p.tagline {
+    font-size: 17px;
+    line-height: 2;
+    max-width: 600px;
+    margin: 0 auto 36px;
+    opacity: 0.94;
+    position: relative;
+  }
+  section.hero a.cta {
+    display: inline-block;
+    padding: 16px 40px;
+    background: white;
+    color: var(--accent-dark);
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    transition: transform .2s;
+    position: relative;
+  }
+  section.hero a.cta:hover { transform: translateY(-2px); }
+
+  /* ===== Section common ===== */
+  section.block {
+    padding: 80px 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  section.block.bg-soft {
+    max-width: none;
+    background: var(--accent-softer);
+  }
+  section.block.bg-soft > .inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  section.block h2 {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 30px;
+    font-weight: 500;
+    margin: 0 0 16px;
+    line-height: 1.5;
+    color: var(--accent-dark);
+    text-align: center;
+    position: relative;
+    padding-bottom: 18px;
+  }
+  section.block h2::after {
+    content: "";
+    display: block;
+    width: 48px; height: 3px;
+    background: var(--accent);
+    margin: 14px auto 0;
+    border-radius: 2px;
+  }
+  section.block .sub {
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    letter-spacing: 0.16em;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+  }
+  section.block p.lead {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 48px;
+    font-size: 16px;
+    line-height: 2;
+    color: #444;
+  }
+
+  /* ===== About ===== */
+  section.about p.message {
+    text-align: center;
+    font-size: 16.5px;
+    line-height: 2.1;
+    max-width: 720px;
+    margin: 0 auto;
+    color: #333;
+  }
+  section.about .highlight {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ===== Services ===== */
+  section.services .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  section.services .item {
+    padding: 28px 24px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  section.services .item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(4,56,76,0.08);
+  }
+  section.services .item .num {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    margin-bottom: 8px;
+  }
+  section.services .item h3 {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 19px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    color: var(--accent-dark);
+    line-height: 1.5;
+  }
+  section.services .item p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.85;
+    color: #444;
+  }
+
+  /* ===== Members ===== */
+  section.members .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 48px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  section.members .person {
+    padding: 32px 28px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-align: center;
+  }
+  section.members .person .role {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    padding: 4px 14px;
+    border-radius: 3px;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  section.members .person h3 {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0 0 4px;
+    color: var(--accent-dark);
+  }
+  section.members .person .name-en {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  section.members .person .desc {
+    font-size: 14px;
+    line-height: 1.85;
+    color: #444;
+    margin: 0;
+  }
+
+  /* ===== Projects ===== */
+  section.projects .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 48px;
+  }
+  section.projects .item {
+    padding: 24px 22px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: transform .2s, box-shadow .2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  section.projects .item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(4,56,76,0.08);
+    border-color: var(--accent);
+  }
+  section.projects .item .cat {
+    display: inline-block;
+    font-size: 10.5px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 3px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  section.projects .item h3 {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    color: var(--accent-dark);
+    line-height: 1.5;
+  }
+  section.projects .item p.url {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 8px;
+    word-break: break-all;
+  }
+  section.projects .item p.desc {
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: #444;
+    margin: 0;
+  }
+
+  /* ===== Contact CTA ===== */
+  section.contact-cta {
+    background: linear-gradient(135deg, #04384c 0%, #032a3a 100%);
+    color: white;
+    padding: 70px 24px;
+    text-align: center;
+  }
+  section.contact-cta h2 {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 28px;
+    font-weight: 500;
+    margin: 0 0 16px;
+    color: white;
+  }
+  section.contact-cta p {
+    font-size: 15.5px;
+    margin: 0 0 32px;
+    opacity: 0.94;
+    line-height: 2;
+  }
+  section.contact-cta a.cta-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: white;
+    color: var(--accent-dark);
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    transition: transform .2s;
+  }
+  section.contact-cta a.cta-btn:hover { transform: translateY(-2px); }
+
+  /* ===== Footer ===== */
+  footer.site {
+    background: #1a1a1a;
+    color: #b0b0b0;
+    padding: 40px 24px 32px;
+    text-align: center;
+    font-size: 13px;
+  }
+  footer.site .links {
+    margin-bottom: 18px;
+    line-height: 2;
+  }
+  footer.site .links a {
+    color: #b0b0b0;
+    text-decoration: none;
+    margin: 0 12px;
+    transition: color .2s;
+  }
+  footer.site .links a:hover { color: white; }
+  footer.site .copy {
+    font-size: 12px;
+    color: #707070;
+  }
+  footer.site .info {
+    font-size: 11.5px;
+    color: #707070;
+    margin-bottom: 14px;
+    line-height: 1.85;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    header.site { padding: 14px 18px; }
+    header.site nav a { margin-left: 16px; font-size: 13px; }
+    section.hero { padding: 70px 20px 80px; }
+    section.hero h1 { font-size: 30px; line-height: 1.55; }
+    section.hero p.tagline { font-size: 15px; }
+    section.block { padding: 60px 20px; }
+    section.block h2 { font-size: 24px; }
+    section.services .grid { grid-template-columns: 1fr; gap: 16px; }
+    section.members .grid { grid-template-columns: 1fr; gap: 20px; }
+    section.projects .grid { grid-template-columns: 1fr; gap: 14px; }
+    section.contact-cta h2 { font-size: 22px; }
+  }
+  @media (max-width: 480px) {
+    header.site nav a:nth-of-type(n+4) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/" class="logo">KIZUNA合同会社</a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#members">Members</a>
+    <a href="#projects">Projects</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>「<span class="accent">したい！</span>」を<br>「<span class="accent">できる！</span>」に</h1>
+  <p class="tagline">
+    できるか、できないかは決断次第です。<br>
+    まずは一歩を踏み出し、小さな一歩を成功させて、さらに一歩。<br>
+    そして、もっと先まで進んでいきましょう。
+  </p>
+  <a href="/contact.html" class="cta">お問い合わせ →</a>
+</section>
+
+<section id="about" class="block about">
+  <p class="sub">ABOUT</p>
+  <h2>必要なのは、<br>最高のガイドとアドバイス</h2>
+  <p class="message">
+    あなたはすでに、<span class="highlight">必要なものを持っています</span>。<br>
+    必要なのは、あなたの方向が正しいかどうか、<br>
+    あなたの頭の中を一緒に整理してくれる<span class="highlight">パートナー</span>と、<br>
+    さらに効率よく動けるための<span class="highlight">アドバイス</span>をもらうことだけ。
+  </p>
+</section>
+
+<section id="services" class="block bg-soft services">
+  <div class="inner">
+    <p class="sub">SERVICES</p>
+    <h2>事業内容</h2>
+    <p class="lead">
+      KIZUNA合同会社は、企業や個人の「したい」を「できる」に変えるための、<br>
+      6つの伴走サービスを提供しています。
+    </p>
+
+    <div class="grid">
+      <div class="item">
+        <span class="num">01</span>
+        <h3>Public Relations</h3>
+        <p>テレビ、ラジオ、ウェブメディア等、様々なメディアにあなたや会社を売り込むお手伝いをいたします。</p>
+      </div>
+      <div class="item">
+        <span class="num">02</span>
+        <h3>Marketing</h3>
+        <p>店舗でも会社でも、お客さんが来なければ仕事は始まりません。お客さんがやってくる仕組みづくりを設計します。</p>
+      </div>
+      <div class="item">
+        <span class="num">03</span>
+        <h3>Branding</h3>
+        <p>人も会社も、実力だけではなかなか認められません。信用や権威付けを構築する仕掛けづくりをお手伝いします。</p>
+      </div>
+      <div class="item">
+        <span class="num">04</span>
+        <h3>System Development</h3>
+        <p>これからは、どんな企業にも効率化・自動化が求められる時代。AIや自動化システム開発でお手伝いします。</p>
+      </div>
+      <div class="item">
+        <span class="num">05</span>
+        <h3>Entrepreneurship Support</h3>
+        <p>大企業もどうなるかわからない時代。会社に頼らず、自分の力で夢を掴む方を全力でサポートします。</p>
+      </div>
+      <div class="item">
+        <span class="num">06</span>
+        <h3>Affiliate</h3>
+        <p>積み上げてきたマーケティング技術を駆使し、様々な業界のアフィリエイトを事業として運営しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="members" class="block members">
+  <p class="sub">MEMBERS</p>
+  <h2>メンバー</h2>
+
+  <div class="grid">
+    <div class="person">
+      <span class="role">COO</span>
+      <h3>山内 匠</h3>
+      <p class="name-en">Takumi Yamauchi</p>
+      <p class="desc">
+        オペレーション全般を統括し、各事業の運営・推進を担当。<br>
+        メンバーとクライアントの「動き出し」を支える、現場の要。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="block bg-soft projects">
+  <div class="inner">
+    <p class="sub">PROJECTS</p>
+    <h2>運営事業</h2>
+    <p class="lead">
+      KIZUNA合同会社が運営・関与している主な事業・サービス一覧です。<br>
+      AI・SaaS・コミュニティ・アフィリエイトなど、複数の領域で展開しています。
+    </p>
+
+    <div class="grid">
+      <a href="https://marginfreemarket.com" class="item" target="_blank" rel="noopener">
+        <span class="cat">AI SAAS</span>
+        <h3>たねまき.ai</h3>
+        <p class="url">marginfreemarket.com</p>
+        <p class="desc">AIブログ自動生成SaaS。10サイト以上の運用実績。</p>
+      </a>
+      <a href="https://mizuyari-ai.com" class="item" target="_blank" rel="noopener">
+        <span class="cat">AI SAAS</span>
+        <h3>みずやり.ai</h3>
+        <p class="url">mizuyari-ai.com</p>
+        <p class="desc">SNS自動投稿ツール。X・Threads・Instagram連携対応。</p>
+      </a>
+      <a href="https://vitasort.com" class="item" target="_blank" rel="noopener">
+        <span class="cat">PLATFORM</span>
+        <h3>VitaSort</h3>
+        <p class="url">vitasort.com</p>
+        <p class="desc">iHerb症状別サプリランキング比較プラットフォーム。</p>
+      </a>
+      <a href="https://lovealltennis.jp" class="item" target="_blank" rel="noopener">
+        <span class="cat">COMMUNITY</span>
+        <h3>Love All Tennis</h3>
+        <p class="url">lovealltennis.jp</p>
+        <p class="desc">東京・品川の婚活テニスサークル。月1開催。</p>
+      </a>
+      <a href="https://michibiki-ad.com" class="item" target="_blank" rel="noopener">
+        <span class="cat">SIGNAGE</span>
+        <h3>ミチビキ</h3>
+        <p class="url">michibiki-ad.com</p>
+        <p class="desc">店舗向けサイネージ広告サービス。</p>
+      </a>
+      <div class="item" style="cursor:default;">
+        <span class="cat">AFFILIATE</span>
+        <h3>賢者のモノサシ</h3>
+        <p class="url">— 楽天ランキング比較</p>
+        <p class="desc">楽天市場の商品比較・ランキングサイト運営。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-cta">
+  <h2>はじめの一歩、ご相談ください</h2>
+  <p>
+    プロジェクトのご相談・取材依頼・パートナーシップなど、<br>
+    お問い合わせフォームよりお気軽にご連絡ください。
+  </p>
+  <a href="/contact.html" class="cta-btn">お問い合わせフォームへ →</a>
+</section>
+
+<footer class="site">
+  <div class="info">
+    KIZUNA合同会社（KIZUNA LLC.）<br>
+    東京都中央区銀座7丁目13-6
+  </div>
+  <div class="links">
+    <a href="/contact.html">お問い合わせ</a>
+    <a href="/privacy.html">プライバシーポリシー</a>
+    <a href="/tokushoho.html">特定商取引法表記</a>
+  </div>
+  <div class="copy">© 2026 KIZUNA LLC. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
