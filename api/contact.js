@@ -46,6 +46,7 @@ export default async function handler(req, res) {
     message = '',
     privacy_agreed = '',
     _gotcha = '',
+    'cf-turnstile-response': turnstileToken = '',
   } = body;
 
   // ハニーポット（ボット弾き・静かに成功扱い）
@@ -60,6 +61,38 @@ export default async function handler(req, res) {
 
   if (!privacy_agreed) {
     return res.status(400).json({ error: 'プライバシーポリシーへの同意が必要です' });
+  }
+
+  // Cloudflare Turnstile 検証
+  if (!turnstileToken) {
+    return res.status(400).json({ error: 'ボット確認が完了していません' });
+  }
+
+  try {
+    const verifyParams = new URLSearchParams({
+      secret: process.env.TURNSTILE_SECRET_KEY || '',
+      response: turnstileToken,
+    });
+    // クライアントIP取得（Vercel/CF経由）
+    const clientIp = req.headers['cf-connecting-ip']
+      || req.headers['x-real-ip']
+      || (req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+    if (clientIp) verifyParams.append('remoteip', clientIp);
+
+    const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: verifyParams,
+    });
+    const verifyData = await verifyRes.json();
+
+    if (!verifyData.success) {
+      console.warn('Turnstile verify failed:', verifyData['error-codes']);
+      return res.status(400).json({ error: 'ボット確認に失敗しました。再度お試しください' });
+    }
+  } catch (err) {
+    console.error('Turnstile verify error:', err);
+    return res.status(500).json({ error: 'ボット確認エラー' });
   }
 
   const subjectLabel = SUBJECT_LABELS[subject] || subject || '未選択';

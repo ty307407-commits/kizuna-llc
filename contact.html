@@ -9,6 +9,8 @@
 <title>お問い合わせ｜KIZUNA合同会社</title>
 <meta name="description" content="KIZUNA合同会社へのお問い合わせフォームです。プロジェクトのご相談・取材依頼・パートナーシップなど、お気軽にお問い合わせください。">
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 <style>
   :root {
     --bg: #ffffff;
@@ -288,6 +290,14 @@
     <!-- スパム対策: 隠しフィールド -->
     <input type="text" name="_gotcha" style="display:none">
 
+    <!-- Cloudflare Turnstile -->
+    <div class="turnstile-wrap" style="margin: 20px 0; display: flex; justify-content: center;">
+      <div class="cf-turnstile"
+           data-sitekey="0x4AAAAAADIQQthenbZFoG5Q"
+           data-theme="light"
+           data-size="normal"></div>
+    </div>
+
     <button type="submit" class="submit">送信する</button>
 
     <p class="form-note">
@@ -303,10 +313,18 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       errorBox.style.display = 'none';
-      submitBtn.disabled = true;
-      submitBtn.textContent = '送信中...';
 
       const data = Object.fromEntries(new FormData(form));
+
+      // Turnstile token 検証（クライアント側）
+      if (!data['cf-turnstile-response']) {
+        errorBox.textContent = 'ボット確認(Turnstile)が完了していません。チェックボックスを操作してください。';
+        errorBox.style.display = 'block';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中...';
 
       try {
         const res = await fetch('/api/contact', {
@@ -325,11 +343,14 @@
         errorBox.style.display = 'block';
         submitBtn.disabled = false;
         submitBtn.textContent = '送信する';
+        // Turnstile token は使い切りなので再度発行
+        if (window.turnstile) window.turnstile.reset();
       } catch (err) {
         errorBox.textContent = '通信エラーが発生しました。ネットワークを確認のうえ再度お試しください。';
         errorBox.style.display = 'block';
         submitBtn.disabled = false;
         submitBtn.textContent = '送信する';
+        if (window.turnstile) window.turnstile.reset();
       }
     });
   </script>
