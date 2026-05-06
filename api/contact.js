@@ -125,7 +125,7 @@ ${esc(message)}
     const result = await resend.emails.send({
       from: FROM_EMAIL,
       to: [TO_EMAIL],
-      reply_to: email,
+      replyTo: email,
       subject: `【KIZUNA問い合わせ】${subjectLabel} / ${name} 様`,
       html,
     });
